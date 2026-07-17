@@ -1,5 +1,7 @@
 import { defineConfig } from "oxlint";
 import eslintConfig from "./scripts/linter/oxlint-eslint.ts";
+import solidConfig from "./scripts/linter/oxlint-solid.ts";
+
 export default defineConfig({
     $schema: "./node_modules/oxlint/configuration_schema.json",
     plugins: ["typescript", "unicorn", "import", "vitest", "promise"],
@@ -35,5 +37,5 @@ export default defineConfig({
         typeAware: true,
         typeCheck: true,
     },
-    extends: [eslintConfig],
+    extends: [eslintConfig, solidConfig],
 });

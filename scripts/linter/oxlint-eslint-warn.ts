@@ -1,5 +1,5 @@
 import { defineConfig } from "oxlint";
-
+import "oxlint";
 // Contains rules that are: too strict to be errors,
 // but are still worth warning about, for machine-generated ./oxlint-eslint-error.json
 export default defineConfig({
