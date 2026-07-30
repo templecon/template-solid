@@ -19,7 +19,7 @@
         "test": "vitest run"
     },
     "engines": {
-        "node": ">=20"
+        "node": ">=24"
     },
     "dependencies": {
         "@solidjs/router": "^0.16.1",
