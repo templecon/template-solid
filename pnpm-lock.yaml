@@ -15,6 +15,9 @@ importers:
         specifier: ^1.9.14
         version: 1.9.14
     devDependencies:
+      '@concertypin/config':
+        specifier: ^0.1.0
+        version: 0.1.0(oxlint@1.73.0(oxlint-tsgolint@0.24.0))
       '@tailwindcss/postcss':
         specifier: ^4.3.2
         version: 4.3.2
@@ -175,6 +178,12 @@ packages:
 
   '@blazediff/core@1.9.1':
     resolution: {integrity: sha512-ehg3jIkYKulZh+8om/O25vkvSsXXwC+skXmyA87FFx6A/45eqOkZsBltMw/TVteb0mloiGT8oGRTcjRAz66zaA==}
+
+  '@concertypin/config@0.1.0':
+    resolution: {integrity: sha512-xZjY0+skOVRrTDzjKLblqnhUor2C6qm5Ovew6ElzgzxuFjqDWRvoXVsLOMSCLHxBA9ECe8ExO0uBZKtz6DbvTQ==}
+    engines: {node: '>=20.19.0'}
+    peerDependencies:
+      oxlint: '>=1.47.0 <2'
 
   '@emnapi/core@1.11.1':
     resolution: {integrity: sha512-RSvbQmHzdKzNsLYa/wHrbc3KN4sYLKAdPZxqiM2HATqv/SBk2/ENSHpvXGaLOMcsAyz0poEGqkmmKYG3OWiJEQ==}
@@ -2062,6 +2071,10 @@ snapshots:
   '@bcoe/v8-coverage@1.0.2': {}
 
   '@blazediff/core@1.9.1': {}
+
+  '@concertypin/config@0.1.0(oxlint@1.73.0(oxlint-tsgolint@0.24.0))':
+    dependencies:
+      oxlint: 1.73.0(oxlint-tsgolint@0.24.0)
 
   '@emnapi/core@1.11.1':
     dependencies:
