@@ -22,7 +22,7 @@ pnpm format
 # Lint code
 pnpm lint
 
-# Run tests (Vitest in a jsdom environment)
+# Run unit tests in Node and browser tests in jsdom
 pnpm test
 ```
 
@@ -35,7 +35,7 @@ pnpm test
 - **ES modules** throughout (`"type": "module"` in package.json)
 - **Output format**: Generates SPA files in the `dist/` directory with absolute asset paths (`base: "/"`); the deploy workflow overrides the base with the GitHub Pages repository path.
 - **Type definitions**: TypeScript throughout.
-- **Testing**: Uses `@solidjs/testing-library` for SolidJS component rendering in jsdom environment (browser tests), and standard Vitest for unit tests.
+- **Testing**: Uses `@solidjs/testing-library` for SolidJS component rendering in jsdom browser tests and Node-only Vitest unit tests.
 
 ## Coding Standards
 

@@ -1,24 +1,15 @@
-import {
-    cleanup,
-    fireEvent,
-    render,
-    screen,
-} from "@solidjs/testing-library";
+import { fireEvent, render, screen } from "@solidjs/testing-library";
 import {
     createMemoryHistory,
     MemoryRouter,
     Navigate,
     Route,
 } from "@solidjs/router";
-import { afterEach, expect, test } from "vitest";
+import { expect, test } from "vitest";
 import App from "@/App";
 import About from "@/pages/About";
 import Home from "@/pages/Home";
 import NotFound from "@/pages/NotFound";
-
-afterEach(() => {
-    cleanup();
-});
 
 function renderApp(location: string) {
     const history = createMemoryHistory();
@@ -34,19 +25,18 @@ function renderApp(location: string) {
 }
 
 test("renders the home page and navigates to About", async () => {
+    expect(import.meta.env.VITEST_MODE).toBe("browser");
     renderApp("/");
 
-    fireEvent.click(
-        await screen.findByRole("button", { name: "Count is 0" })
-    );
+    fireEvent.click(await screen.findByRole("button", { name: "Count is 0" }));
     expect(
         await screen.findByRole("button", { name: "Count is 1" })
-    ).toBeTruthy();
+    ).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("link", { name: "About" }));
     expect(
         await screen.findByRole("heading", { name: "About This Template" })
-    ).toBeTruthy();
+    ).toBeInTheDocument();
 });
 
 test("normalizes the physical entry path to Home", async () => {
@@ -54,7 +44,7 @@ test("normalizes the physical entry path to Home", async () => {
 
     expect(
         await screen.findByRole("heading", { name: "Hello World!" })
-    ).toBeTruthy();
+    ).toBeInTheDocument();
 });
 
 test("renders a not-found page for an unknown route", async () => {
@@ -62,5 +52,5 @@ test("renders a not-found page for an unknown route", async () => {
 
     expect(
         await screen.findByRole("heading", { name: "Page not found" })
-    ).toBeTruthy();
+    ).toBeInTheDocument();
 });

@@ -26,10 +26,7 @@ render(
         <Router base={base} root={App}>
             <Route path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route
-                path="/index.html"
-                component={() => <Navigate href="/" />}
-            />
+            <Route path="/index.html" component={() => <Navigate href="/" />} />
             <Route path="*" component={NotFound} />
         </Router>
     ),

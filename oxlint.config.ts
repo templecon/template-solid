@@ -1,5 +1,6 @@
 import { defineConfig } from "oxlint";
 import frontendConfig from "@concertypin/config/oxlint/frontend";
+import scriptsConfig from "@concertypin/config/oxlint/scripts";
 import solidConfig from "./scripts/linter/oxlint-solid.ts";
 
 export default defineConfig({
@@ -17,25 +18,11 @@ export default defineConfig({
         "**/.vscode/**",
         "**/.git/**",
     ],
-    overrides: [
-        {
-            files: ["**/*.d.ts"],
-            rules: {
-                "no-unused-vars": "off",
-            },
-        },
-        {
-            files: ["scripts/**/*.ts"],
-            rules: {
-                "no-console": "off",
-            },
-        },
-    ],
     options: {
         denyWarnings: true,
         reportUnusedDisableDirectives: "error",
         typeAware: true,
         typeCheck: true,
     },
-    extends: [frontendConfig, solidConfig],
+    extends: [frontendConfig, solidConfig, scriptsConfig],
 });

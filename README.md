@@ -9,12 +9,9 @@ git clone <repository-url> template-solid
 
 ## Requirements
 
-Node.js version 22.18.0 or higher is recommended, since it has basic TypeScript support, which is used on oxlint.config.ts.
-Older versions will:
-
-- Older than v22.6.0: Not work, migrate Node version or oxlint.config.ts to .js.
-- Between v22.6.0 and v22.18.0: Work, but require `--experimental-transform-types`(since v22.7.0) or `--experimental-strip-types`(since v22.6.0) flag on `NODE_OPTIONS` environment variable.
-- v22.18.0 or higher: Work without flags.
+Node.js 24.15.0 or later in the 24.x line, or version 26.0.0 or higher, is
+required. These versions are compatible with jsdom and support the TypeScript
+syntax used by `oxlint.config.ts`.
 
 ## Conventions and Rules
 
@@ -41,6 +38,6 @@ Unknown client routes render the application's `Page not found` view.
 
 ## Tests
 
-Vitest runs in a jsdom environment for both `tests/unit/` and `tests/browser/`.
+Vitest has separate Node (`tests/unit/`) and jsdom (`tests/browser/`) projects.
 Browser fixtures use `@solidjs/testing-library` and exercise rendered user
 behavior, including route navigation.

@@ -19,16 +19,17 @@
         "test": "vitest run"
     },
     "engines": {
-        "node": ">=24"
+        "node": "^24.15.0 || >=26.0.0"
     },
     "dependencies": {
         "@solidjs/router": "^0.16.1",
         "solid-js": "^1.9.14"
     },
     "devDependencies": {
-        "@concertypin/config": "^0.1.0",
+        "@concertypin/config": "^0.1.2",
         "@solidjs/testing-library": "^0.8.10",
         "@tailwindcss/postcss": "^4.3.2",
+        "@testing-library/jest-dom": "^7.0.0",
         "@types/node": "^26.1.1",
         "@vitest/coverage-v8": "^4.1.10",
         "cross-env": "^10.1.0",

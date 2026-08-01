@@ -21,10 +21,32 @@ const testConfig: Config["test"] = {
         reportOnFailure: true,
         reporter: ["text", "json-summary", "html"],
     },
-    environment: "jsdom",
+    projects: [
+        {
+            test: {
+                name: "unit",
+                environment: "node",
+                include: ["tests/unit/**/*.test.ts"],
+                env: {
+                    VITEST_MODE: "unit",
+                },
+            },
+            extends: true,
+        },
+        {
+            test: {
+                name: "browser",
+                environment: "jsdom",
+                include: ["tests/browser/**/*.test.{ts,tsx}"],
+                env: {
+                    VITEST_MODE: "browser",
+                },
+            },
+            extends: true,
+        },
+    ],
     exclude: ["**/node_modules/**", "**/dist/**"],
     globals: true,
-    include: ["tests/**/*.test.{ts,tsx}"],
     setupFiles: "./tests/setup.ts",
 };
 

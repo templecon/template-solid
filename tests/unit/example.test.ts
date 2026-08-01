@@ -7,10 +7,9 @@ describe("example test", () => {
         // Type check example
         expectTypeOf<"asdf">().toBeString();
     });
-    it.concurrent("should run in node environment", () => {
-        // process is only available in node environment,
-        // Not in browser.
-        // If this test runs successfully, the node environment works.
+    it.concurrent("should run in the unit project", () => {
+        expect(import.meta.env.VITEST_MODE).toBe("unit");
+        expect(typeof document).toBe("undefined");
         expect(typeof process).toBe("object");
         expect(process.versions.node).toBeDefined();
     });
