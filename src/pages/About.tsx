@@ -8,13 +8,13 @@ const About: Component = () => {
                 This is a <strong>SolidJS SPA template</strong> built with Vite.
             </p>
             <p class="mb-2">
-                It supports static hosting on GitHub Pages and local{" "}
-                <code>file://</code> viewing via a custom Vite plugin that
-                copies <code>index.html</code> to route directories.
+                SolidJS Router handles application navigation. GitHub Pages
+                serves this app's custom 404 page for direct route loads, then
+                SolidJS renders the matching client route.
             </p>
-            <p>
-                Testing is done with <code>vitest-browser-solid</code> in Vitest
-                Browser Mode.
+            <p class="mb-2">
+                Tests use <code>@solidjs/testing-library</code> in Vitest with
+                jsdom to exercise rendered user behavior.
             </p>
         </main>
     );
