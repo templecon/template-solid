@@ -1,5 +1,10 @@
 /// <reference types="vite/client" />
-
-interface Window {
-    __SPA_ROUTE__?: string;
+interface ImportMetaEnv {
+    readonly VITEST_MODE?: "unit" | "browser";
+}
+interface ImportMeta {
+    readonly env: ImportMetaEnv;
+}
+interface ViteTypeOptions {
+    strictImportMetaEnv: unknown;
 }

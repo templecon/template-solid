@@ -5,7 +5,7 @@ All agents, such as Claude Code, should keep `**/AGENTS.md` in mind.
 
 ## Project Type
 
-This is a **SolidJS SPA template** built with Vite. It uses a custom Vite plugin to copy `index.html` to route directories at build time, enabling static hosting on GitHub Pages and local `file://` viewing without a HashRouter or Node-based SSR.
+This is a **SolidJS SPA template** built with Vite. It builds HTTP(S)-hosted assets for GitHub Pages using clean History API URLs (`@solidjs/router`) and a SPA-bearing `404.html` entry for refresh and direct client-route loads. `file://` viewing is unsupported.
 
 ## Development Commands
 
@@ -22,19 +22,20 @@ pnpm format
 # Lint code
 pnpm lint
 
-# Run tests (Vitest with browser and node environments)
+# Run unit tests in Node and browser tests in jsdom
 pnpm test
 ```
 
 ## Architecture
 
-- **Entry point**: `src/index.tsx` - Mounts the SolidJS app. On `file://` protocol it renders without `@solidjs/router`; on HTTP it uses the router for full SPA navigation.
-- **Routing**: Uses `@solidjs/router` for HTTP (clean History API URLs) and a simple `__SPA_ROUTE__`-based approach for `file://` (full page navigations to copied `index.html` files).
-- **Build plugin**: A custom Vite plugin (`spaCopyPlugin` in `vite.config.ts`) copies `dist/index.html` to `dist/404.html` (GitHub Pages fallback) and route-specific directories (e.g. `dist/about/index.html`), injecting `window.__SPA_ROUTE__` for `file://` support.
+- **Entry point**: `src/index.tsx` - Mounts the SolidJS app inside `@solidjs/router` with the application base from `import.meta.env.BASE_URL`.
+- **Routing**: Uses `@solidjs/router` with clean History API URLs. The route tree includes an explicit catch-all that renders the `NotFound` page for unknown client routes, plus a redirect that normalizes the physical `index.html` entry path.
+- **Layout**: `src/App.tsx` - Renders the shared navigation shell around the routed pages.
+- **Build inputs**: Vite multi-page inputs (`index.html` and `404.html`) emit the SPA twice: `index.html` for the root and `404.html` as the GitHub Pages SPA fallback for refresh or direct visits to client routes. GitHub Pages keeps an HTTP 404 status on those fallback responses.
 - **ES modules** throughout (`"type": "module"` in package.json)
-- **Output format**: Generates SPA files in the `dist/` directory with relative asset paths (`base: "./"`).
+- **Output format**: Generates SPA files in the `dist/` directory with absolute asset paths (`base: "/"`); the deploy workflow overrides the base with the GitHub Pages repository path.
 - **Type definitions**: TypeScript throughout.
-- **Testing**: Uses `vitest-browser-solid` for SolidJS component rendering in Vitest Browser Mode (browser tests), and standard Vitest for Node.js unit tests.
+- **Testing**: Uses `@solidjs/testing-library` for SolidJS component rendering in jsdom browser tests and Node-only Vitest unit tests.
 
 ## Coding Standards
 
@@ -53,3 +54,13 @@ MCP Server:
 ## Package Manager
 
 This project uses **pnpm**.
+
+## Using This Template
+
+Immediately after creating a project from this template, upgrade all dependencies and refresh the lockfile:
+
+```bash
+pnpm up --latest
+```
+
+Run the project's format, lint, test, and build checks after the upgrade and resolve every resulting error before continuing development.

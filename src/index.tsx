@@ -1,14 +1,19 @@
 /* @refresh reload */
 import "@/index.css";
 import { render } from "solid-js/web";
-import { Router, Route } from "@solidjs/router";
+import { Navigate, Route, Router } from "@solidjs/router";
 import "solid-devtools";
 
 import App from "@/App";
-import Home from "@/pages/Home";
 import About from "@/pages/About";
+import Home from "@/pages/Home";
+import NotFound from "@/pages/NotFound";
 
 const root = document.getElementById("root");
+
+// Strip the trailing slash Vite appends to BASE_URL so router links
+// (e.g. `<A href="/about">`) don't resolve to double-slashed hrefs.
+const base = import.meta.env.BASE_URL.replace(/\/+$/, "");
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
     throw new Error(
@@ -16,19 +21,14 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
     );
 }
 
-if (window.location.protocol === "file:") {
-    // file:// protocol: render without Solid Router, routing handled inside App
-    render(() => <App />, root!);
-} else {
-    // HTTP: full SPA with Solid Router, including catch-all redirect for unknown paths
-    render(
-        () => (
-            <Router root={App}>
-                <Route path="/" component={Home} />
-                <Route path="/about" component={About} />
-                <Route path="*" component={Home} />
-            </Router>
-        ),
-        root!
-    );
-}
+render(
+    () => (
+        <Router base={base} root={App}>
+            <Route path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/index.html" component={() => <Navigate href="/" />} />
+            <Route path="*" component={NotFound} />
+        </Router>
+    ),
+    root!
+);
