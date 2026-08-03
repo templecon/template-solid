@@ -9,8 +9,7 @@ git clone <repository-url> template-solid
 
 ## Requirements
 
-Node.js 24.15.0 or later in the 24.x line, or version 26.0.0 or higher, is
-required. These versions are compatible with jsdom and support the TypeScript
+Node.js 26.0.0 or higher is required. This version supports the TypeScript
 syntax used by `oxlint.config.ts`.
 
 ## Conventions and Rules
