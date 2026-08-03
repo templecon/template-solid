@@ -12,6 +12,20 @@ git clone <repository-url> template-solid
 Node.js 26.0.0 or higher is required. This version supports the TypeScript
 syntax used by `oxlint.config.ts`.
 
+## Getting Started
+
+This template pins pnpm in `package.json` (`packageManager`). Install that
+exact version, then install dependencies:
+
+```bash
+npm install --global pnpm@10.17.1
+pnpm install
+```
+
+`pnpm install` runs the `postinstall` script, which installs the git hooks
+(`pre-commit` runs `pnpm run check`; `pre-push` enforces the `dev/*` branch
+naming convention).
+
 ## Conventions and Rules
 
 This project follows specific conventions and rules for code style, data validation, testing, and more. Please refer to the following documentation for detailed guidelines.
