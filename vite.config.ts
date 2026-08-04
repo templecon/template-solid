@@ -52,7 +52,7 @@ const testConfig: Config["test"] = {
 
 const isTest = process.env.VITEST === "true";
 export default defineConfig({
-    base: "/",
+    base: "./",
     build: {
         outDir: "dist",
         rolldownOptions: {

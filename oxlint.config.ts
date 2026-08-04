@@ -1,6 +1,5 @@
 import { defineConfig } from "oxlint";
 import frontendConfig from "@concertypin/config/oxlint/frontend";
-import scriptsConfig from "@concertypin/config/oxlint/scripts";
 import solidConfig from "./scripts/linter/oxlint-solid.ts";
 
 export default defineConfig({
@@ -24,5 +23,5 @@ export default defineConfig({
         typeAware: true,
         typeCheck: true,
     },
-    extends: [frontendConfig, solidConfig, scriptsConfig],
+    extends: [frontendConfig, solidConfig],
 });

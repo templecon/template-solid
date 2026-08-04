@@ -17,7 +17,7 @@
         "lint:check": "oxlint .",
         "postinstall": "pnpm exec simple-git-hooks",
         "preview": "vite preview",
-        "check": "pnpm run format:check && pnpm run lint:check && pnpm run test",
+        "check": "pnpm run format && pnpm run lint && pnpm run test",
         "test": "vitest run"
     },
     "engines": {
@@ -28,7 +28,7 @@
         "solid-js": "^1.9.14"
     },
     "devDependencies": {
-        "@concertypin/config": "^0.1.2",
+        "@concertypin/config": "^0.2.0",
         "@solidjs/testing-library": "^0.8.10",
         "@tailwindcss/postcss": "^4.3.2",
         "@testing-library/jest-dom": "^7.0.0",
