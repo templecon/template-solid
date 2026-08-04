@@ -1,26 +1,25 @@
 {
     "[javascript][javascriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.defaultFormatter": "oxc.oxc-vscode",
         "editor.tabSize": 4
     },
     "[github-actions-workflow][yaml]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.defaultFormatter": "oxc.oxc-vscode",
         "editor.tabSize": 2
     },
     "[typescript][typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.defaultFormatter": "oxc.oxc-vscode",
         "editor.tabSize": 4
     },
     "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.defaultFormatter": "oxc.oxc-vscode",
         "editor.tabSize": 4
     },
     "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "oxc.oxc-vscode"
     },
     "js/ts.preferences.preferTypeOnlyAutoImports": true,
     "oxc.typeAware": true,
-    "prettier.requireConfig": true,
     "files.exclude": {
         // Generated d.ts, which is not useful since all tsconfig emits there.
         "dist-ts": true,
