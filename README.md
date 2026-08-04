@@ -39,9 +39,12 @@ This project follows specific conventions and rules for code style, data validat
 ## Static Hosting
 
 Deploy the `dist/` output over HTTP(S), such as GitHub Pages or `pnpm preview`.
-This template uses clean History API URLs via `@solidjs/router`. GitHub Pages
-serves the SPA-bearing `404.html` for a refresh or direct visit to a client
-route, so SolidJS can render the matching page without changing the URL.
+A plain `pnpm build` emits relative asset URLs, so the output serves correctly
+from a domain root or a GitHub Pages project site subpath
+(`https://<user>.github.io/<repo>/`). For History API routing below the domain
+root, rebuild with the site's absolute base path, e.g.
+`pnpm build --base "/<repo>/"`; the included deploy workflow supplies this base
+automatically.
 
 GitHub Pages fallback responses retain an HTTP 404 status even when SolidJS
 renders a valid client route. This can affect SEO, crawlers, and link previews.
