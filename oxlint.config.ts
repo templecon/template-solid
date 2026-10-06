@@ -1,8 +1,10 @@
-import { defineConfig } from "oxlint";
 import frontendConfig from "@concertypin/config/oxlint/frontend";
+import { defineConfig } from "oxlint";
+
 import solidConfig from "./scripts/linter/oxlint-solid.ts";
 
 export default defineConfig({
+    ...frontendConfig("src/index.css"),
     $schema: "./node_modules/oxlint/configuration_schema.json",
     plugins: ["typescript", "unicorn", "import", "vitest", "promise"],
     env: {
@@ -23,5 +25,5 @@ export default defineConfig({
         typeAware: true,
         typeCheck: true,
     },
-    extends: [frontendConfig, solidConfig],
+    extends: [solidConfig],
 });

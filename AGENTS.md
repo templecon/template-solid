@@ -5,7 +5,7 @@ All agents, such as Claude Code, should keep `**/AGENTS.md` in mind.
 
 ## Project Type
 
-This is a **SolidJS SPA template** built with Vite. It builds HTTP(S)-hosted assets for GitHub Pages using clean History API URLs (`@solidjs/router`) and a SPA-bearing `404.html` entry for refresh and direct client-route loads. `file://` viewing is unsupported.
+This is a **SolidJS SPA template** built with Vite. It builds assets for secure browser contexts (HTTPS in production or localhost for development) using clean History API URLs (`@solidjs/router`) and a SPA-bearing `404.html` entry for refresh and direct client-route loads. Remote plain HTTP and `file://` viewing are unsupported.
 
 ## Development Commands
 

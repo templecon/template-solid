@@ -38,9 +38,11 @@ This project follows specific conventions and rules for code style, data validat
 
 ## Static Hosting
 
-Deploy the `dist/` output over HTTP(S), such as GitHub Pages or `pnpm preview`.
-A plain `pnpm build` emits relative asset URLs, so the output serves correctly
-from a domain root or a GitHub Pages project site subpath
+Deploy the `dist/` output in a browser secure context: use HTTPS in production
+or localhost for development and preview (for example, `pnpm preview`). Plain
+HTTP on a remote origin and `file://` are unsupported. A plain `pnpm build`
+emits relative asset URLs, so the output serves correctly from a domain root
+or a GitHub Pages project site subpath
 (`https://<user>.github.io/<repo>/`). For History API routing below the domain
 root, rebuild with the site's absolute base path, e.g.
 `pnpm build --base "/<repo>/"`; the included deploy workflow supplies this base
@@ -57,3 +59,11 @@ Unknown client routes render the application's `Page not found` view.
 Vitest has separate Node (`tests/unit/`) and jsdom (`tests/browser/`) projects.
 Browser fixtures use `@solidjs/testing-library` and exercise rendered user
 behavior, including route navigation.
+
+## Solid version
+
+This template uses the stable Solid 1.x stack. Solid 2 is in release-candidate
+status and requires a coordinated migration of the runtime, renderer, JSX
+compiler, router, and Vite plugin; do not upgrade `solid-js` by itself. See the
+[Solid 1.x to 2.0 migration guide](https://v2.solidjs.com/migration/from-solid-1)
+before evaluating that migration.

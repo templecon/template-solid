@@ -1,5 +1,5 @@
-import { type Component, type JSX } from "solid-js";
 import { A } from "@solidjs/router";
+import { type Component, type JSX } from "solid-js";
 
 type AppProps = {
     children?: JSX.Element;
@@ -8,7 +8,7 @@ type AppProps = {
 const App: Component<AppProps> = (props) => {
     return (
         <div class="min-h-screen">
-            <nav class="flex gap-4 items-center border-b px-6 py-3 bg-gray-100">
+            <nav class="flex items-center gap-4 border-b bg-gray-100 px-6 py-3">
                 <A href="/" class="text-blue-600 hover:underline">
                     Home
                 </A>

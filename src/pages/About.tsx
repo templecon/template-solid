@@ -2,8 +2,8 @@ import { type Component } from "solid-js";
 
 const About: Component = () => {
     return (
-        <main class="text-center p-6">
-            <h1 class="text-3xl font-bold mb-4">About This Template</h1>
+        <main class="p-6 text-center">
+            <h1 class="mb-4 text-3xl font-bold">About This Template</h1>
             <p class="mb-2">
                 This is a <strong>SolidJS SPA template</strong> built with Vite.
             </p>
