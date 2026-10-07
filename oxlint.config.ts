@@ -3,8 +3,6 @@ import { defineConfig } from "oxlint";
 
 import solidConfig from "./scripts/linter/oxlint-solid.ts";
 
-const frontend = createFrontendOxlintConfig("src/index.css");
-
 export default defineConfig({
     jsPlugins: ["oxlint-tailwindcss"],
     plugins: ["typescript", "unicorn", "import", "vitest", "promise"],
@@ -27,5 +25,5 @@ export default defineConfig({
         typeCheck: true,
     },
     settings: { tailwindcss: { entryPoint: "src/index.css" } },
-    extends: [frontend, solidConfig],
+    extends: [createFrontendOxlintConfig("src/index.css"), solidConfig],
 });
