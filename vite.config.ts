@@ -2,8 +2,9 @@
 
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { type UserConfig, defineConfig } from "vite";
+
 import devtools from "solid-devtools/vite";
+import { type UserConfig, defineConfig } from "vite";
 import solid from "vite-plugin-solid";
 
 type Config = Required<UserConfig>;

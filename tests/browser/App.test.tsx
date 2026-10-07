@@ -1,11 +1,12 @@
-import { fireEvent, render, screen } from "@solidjs/testing-library";
 import {
     createMemoryHistory,
     MemoryRouter,
     Navigate,
     Route,
 } from "@solidjs/router";
+import { fireEvent, render, screen } from "@solidjs/testing-library";
 import { expect, test } from "vitest";
+
 import App from "@/App";
 import About from "@/pages/About";
 import Home from "@/pages/Home";
