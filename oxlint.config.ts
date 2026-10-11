@@ -12,6 +12,12 @@ export default defineConfig({
     env: {
         builtin: true,
     },
+    options: {
+        denyWarnings: true,
+        typeAware: true,
+        typeCheck: true,
+        reportUnusedDisableDirectives: "error",
+    },
     ignorePatterns: [
         "**/node_modules/**",
         "**/dist/**",
