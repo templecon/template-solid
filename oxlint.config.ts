@@ -1,11 +1,14 @@
+import createBase from "@concertypin/config/oxlint";
 import createFrontendOxlintConfig from "@concertypin/config/oxlint/frontend";
 import { defineConfig } from "oxlint";
 
 import solidConfig from "./scripts/linter/oxlint-solid.ts";
 
+const frontend = createFrontendOxlintConfig({
+    tailwind: { entryPoint: "src/index.css" },
+});
+
 export default defineConfig({
-    jsPlugins: ["oxlint-tailwindcss"],
-    plugins: ["typescript", "unicorn", "import", "vitest", "promise"],
     env: {
         builtin: true,
     },
@@ -18,12 +21,6 @@ export default defineConfig({
         "**/.vscode/**",
         "**/.git/**",
     ],
-    options: {
-        denyWarnings: true,
-        reportUnusedDisableDirectives: "error",
-        typeAware: true,
-        typeCheck: true,
-    },
-    settings: { tailwindcss: { entryPoint: "src/index.css" } },
-    extends: [createFrontendOxlintConfig("src/index.css"), solidConfig],
+    settings: frontend.settings,
+    extends: [createBase(), frontend, solidConfig],
 });
