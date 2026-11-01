@@ -14,11 +14,9 @@ syntax used by `oxlint.config.ts`.
 
 ## Getting Started
 
-This template pins pnpm in `package.json` (`packageManager`). Install that
-exact version, then install dependencies:
+This project uses pnpm. Install dependencies:
 
 ```bash
-npm install --global pnpm@10.17.1
 pnpm install
 ```
 
